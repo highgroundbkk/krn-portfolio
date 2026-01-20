@@ -32,33 +32,33 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
             {/* Section 1: Center */}
             <motion.div 
                 style={{ opacity: opacity1, y: y1 }}
-                className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center text-center"
+                className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center text-center px-4"
             >
                 <div>
-                <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mix-blend-difference">My Name.</h1>
-                <p className="text-xl md:text-2xl mt-4 font-light text-gray-300">Creative Developer.</p>
+                <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mix-blend-difference">Koranin Jattanatamjit.</h1>
+                <p className="text-xl md:text-2xl mt-4 font-light text-gray-300 mix-blend-difference">Creative Developer & Entrepreneur.</p>
                 </div>
             </motion.div>
 
             {/* Section 2: Left */}
             <motion.div 
                 style={{ opacity: opacity2, y: y2 }}
-                className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-start px-12 md:px-24"
+                className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-start px-8 md:px-24"
             >
-                <h2 className="text-5xl md:text-7xl font-semibold leading-tight max-w-2xl mix-blend-difference">
-                I build digital <br />
-                <span className="text-gray-400">experiences.</span>
+                <h2 className="text-4xl md:text-7xl font-semibold leading-tight max-w-3xl mix-blend-difference">
+                Crafting digital businesses <br />
+                <span className="text-gray-400">with purpose.</span>
                 </h2>
             </motion.div>
 
             {/* Section 3: Right */}
             <motion.div 
                 style={{ opacity: opacity3, y: y3 }}
-                className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-end px-12 md:px-24 text-right"
+                className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-end px-8 md:px-24 text-right"
             >
-                <h2 className="text-5xl md:text-7xl font-semibold leading-tight max-w-2xl mix-blend-difference">
-                Bridging design <br />
-                <span className="text-gray-400">and engineering.</span>
+                <h2 className="text-4xl md:text-7xl font-semibold leading-tight max-w-3xl mix-blend-difference">
+                From Brainchain Labs <br />
+                <span className="text-gray-400">to HIGHGROUND.</span>
                 </h2>
             </motion.div>
       </div>
