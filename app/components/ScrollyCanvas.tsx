@@ -41,18 +41,32 @@ export default function ScrollyCanvas({ scrollYProgress }: ScrollyCanvasProps) {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     
-    // Canvas dimensions
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    // Handle High DPI Displays
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    
+    // Scale context to ensure correct drawing operations
+    ctx.scale(dpr, dpr);
+
+    // IMPORTANT: Style matches window size, buffer matches DPR size
+    // We don't need to manually start styles here if CSS handles it, 
+    // but the drawing logic needs to know the "logical" width/height 
+    // which remains window.innerWidth/innerHeight because we scaled the context.
 
     const img = images[index];
     
-    // Object-fit: cover logic
-    const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
-    const x = (canvas.width / 2) - (img.width / 2) * scale;
-    const y = (canvas.height / 2) - (img.height / 2) * scale;
+    // Logical dimensions (window size)
+    const logicalWidth = window.innerWidth;
+    const logicalHeight = window.innerHeight;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Object-fit: cover logic
+    const scale = Math.max(logicalWidth / img.width, logicalHeight / img.height);
+    const x = (logicalWidth / 2) - (img.width / 2) * scale;
+    const y = (logicalHeight / 2) - (img.height / 2) * scale;
+
+    ctx.clearRect(0, 0, logicalWidth, logicalHeight);
+    // Draw using the scale calculated against logical dimensions
     ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
   };
 
